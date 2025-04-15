@@ -78,7 +78,7 @@ export default function Contact() {
               <ContactItem
                 icon={<FaEnvelope />}
                 title="Email"
-                value="srikeerthi@example.com"
+                value="srikeerthireddy24@gmail.com"
                 custom={1}
               />
               <ContactItem
