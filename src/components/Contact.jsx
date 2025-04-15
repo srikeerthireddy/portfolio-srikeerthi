@@ -84,7 +84,7 @@ export default function Contact() {
               <ContactItem
                 icon={<FaMapMarkerAlt />}
                 title="Location"
-                value="San Francisco, CA"
+                value="Kadapa-Andhra Pradesh"
                 custom={3}
               />
             </div>
