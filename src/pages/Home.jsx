@@ -5,6 +5,7 @@ import { BsPersonLinesFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import profileImg from '../assets/photos/profile2.jpg'
+import resume from '../assets/Resume.pdf'
 
 
 const Home = () => {
@@ -32,11 +33,11 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-900 text-white pt-16">
-      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-10">
+    <div className="min-h-screen  text-white pt-16">
+      <div className="flex flex-wrap-reverse md:flex-nowrap py-10 md:flex-row gap-10 items-center justify-center min-h-screen px-6 md:px-10">
         <motion.div
           ref={textRef}
-          className="md:w-1/2 text-center md:text-left pl-10 space-y-6"
+          className="md:w-1/2 text-center md:text-left md:pl-30 space-y-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -49,14 +50,14 @@ const Home = () => {
 
           <motion.div
             ref={iconsRef}
-            className="flex justify-center md:justify-start gap-6 text-3xl"
+            className="flex justify-center md:justify-start gap-6 text-3xl "
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <a href="https://github.com/srikeerthireddy" target="_blank"><FaGithub /></a>
-            <a href="https://www.linkedin.com/in/sri-keerthi-y-519b312a3/" target="_blank"><FaLinkedin /></a>
-            <a href="https://leetcode.com/u/srikeerthireddy/" target="_blank"><FaLaptopCode /></a>
+            <a href="https://github.com/srikeerthireddy" target="_blank" className='hover:invert'><FaGithub className='size-10' /></a>
+            <a href="https://www.linkedin.com/in/sri-keerthi-y-519b312a3/" target="_blank"  className='hover:text-blue-800'><FaLinkedin className='size-10 ' /></a>
+            <a href="https://leetcode.com/u/srikeerthireddy/" target="_blank" className='hover:text-orange-500'><FaLaptopCode className='size-10'/></a>
           </motion.div>
 
           <motion.div
@@ -72,7 +73,7 @@ const Home = () => {
             >
               Contact Me
             </button>
-            <a href="/Resume.pdf" download className="bg-green-500 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-green-600 flex items-center gap-2">
+            <a href={resume} download className="bg-green-500 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-green-600 flex items-center gap-2">
               <HiDownload /> Download Resume
             </a>
           </motion.div>
@@ -85,7 +86,7 @@ const Home = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <img src={profileImg} alt="Profile" className="rounded-full w-60 h-60 md:h-90 md:w-90 object-cover outline-2 outline-amber-100 hover:shadow-2xl mx-auto md:mx-0" />
+          <img src={profileImg} alt="Profile" className="md:rounded-full rounded-3xl w-60 h-60 md:h-90 md:w-90 object-cover outline-2 outline-amber-100 hover:shadow-2xl mx-auto md:mx-0" />
 
         </motion.div>
       </div>

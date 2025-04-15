@@ -5,7 +5,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import { motion } from 'framer-motion';
-import FullWidthTabs from './pages/FullWidthTabs';
+import FullWidthTabs from './components/FullWidthTabs';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 60 },
@@ -14,7 +14,7 @@ const sectionVariants = {
 
 const App = () => {
   return (
-    <div id="main" className="scroll-smooth bg-gray-900 text-white">
+    <div id="main" className="scroll-smooth bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-900 text-white">
       <Navbar />
       
       <motion.section
@@ -38,7 +38,7 @@ const App = () => {
       </motion.section>
 
       <motion.section
-        id="portfolio"
+        id="showcase"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
