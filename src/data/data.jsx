@@ -1,6 +1,8 @@
 import lanCImg from "../assets/certificates/one.jpg";
 import excelImg from "../assets/certificates/Two.jpg";
-
+import htmlImg from "../assets/certificates/certificate4.jpg";
+import nextImg from "../assets/certificates/certificate2.jpg";
+import sqlImg from  "../assets/certificates/certificate3.png";
 import { 
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, 
   FaPython, FaJava, FaDatabase, 
@@ -12,7 +14,10 @@ import {
 const data = {
   certificates: [
     { name: "C Programming Certificate", img: lanCImg },
-    { name: "Excel Mastery Certificate", img: excelImg }
+    { name: "Excel Mastery Certificate", img: excelImg },
+    {name:"HTML,CSS,Java,JavaScript Full-Stack Course",img:htmlImg},
+    {name:"Next.js",img:nextImg},
+    {name:"SQL Database Design",img:sqlImg}
   ],
   techStack: [
     { name: "HTML", icon: <FaHtml5 className="text-orange-500" size={60} /> },

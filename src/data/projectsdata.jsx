@@ -8,7 +8,7 @@ const projects = [
     description: "A serene digital platform designed to promote mental well-being by offering users tools to track dailymoods, monitor mental health symptoms, and access self-care resources.",
     tech: ["React.js","Charka-Ui Css", "MongoDB", "Express.js"],
     image: capstone,
-    link: "https://calmcorner-o50kdbb00-sri-keerthis-projects.vercel.app/",
+    link: "https://calmcorner-red.vercel.app/"
   },
   {
     title: "Brick-Breaker",

@@ -14,9 +14,12 @@ const sectionVariants = {
 
 const App = () => {
   return (
-    <div id="main" className="scroll-smooth bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-900 text-white">
+    <div
+      id="main"
+      className="scroll-smooth bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-900 text-white"
+    >
       <Navbar />
-      
+
       <motion.section
         id="home"
         initial="hidden"
@@ -37,14 +40,16 @@ const App = () => {
         <About />
       </motion.section>
 
+      {/* Showcase Section with bottom padding */}
       <motion.section
         id="showcase"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={sectionVariants}
+        className="py-20"   // ✨ changed from mt-16 to padding-y (top and bottom space)
       >
-        <FullWidthTabs/>
+        <FullWidthTabs />
       </motion.section>
 
       <motion.section
@@ -53,6 +58,7 @@ const App = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={sectionVariants}
+        className="py-20"   // ✨ also added padding-y for clean separation
       >
         <Projects />
       </motion.section>
@@ -63,6 +69,7 @@ const App = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={sectionVariants}
+        className="py-20"   // ✨ optional, looks more neat
       >
         <Contact />
       </motion.section>
