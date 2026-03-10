@@ -1,5 +1,5 @@
-import lanCImg from "../assets/certificates/one.jpg";
-import excelImg from "../assets/certificates/Two.jpg";
+import lanCImg from "../assets/certificates/Programming in C Language.jpg";
+import excelImg from "../assets/certificates/Diploma in office Automation.jpg";
 import htmlImg from "../assets/certificates/certificate4.jpg";
 import nextImg from "../assets/certificates/certificate2.jpg";
 import sqlImg from "../assets/certificates/certificate3.png";
