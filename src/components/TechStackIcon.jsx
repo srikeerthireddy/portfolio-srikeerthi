@@ -1,19 +1,14 @@
-import React from 'react';
+import React from "react";
 
-const TechStackIcon = ({ icon, name }) => {
+export default function TechStackIcon({ icon, name }) {
   return (
-    <div className="group p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
-      <div className="relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-indigo-500 rounded-full opacity-0 group-hover:opacity-10 blur transition duration-300"></div>
-        <div className="relative h-16 w-16 flex justify-center items-center md:h-20 md:w-20 transform transition-transform duration-300">
-          {icon}
-        </div>
+    <div className="group flex flex-col items-center gap-2 py-2 px-3 rounded-full hover:bg-white/5 transition-colors cursor-default">
+      <div className="h-10 w-10 flex justify-center items-center text-slate-400 group-hover:text-amber-400 transition-colors">
+        {icon}
       </div>
-      <span className="text-slate-300 font-semibold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+      <span className="text-slate-500 text-sm font-medium group-hover:text-slate-300 transition-colors whitespace-nowrap">
         {name}
       </span>
     </div>
   );
-};
-
-export default TechStackIcon;
+}

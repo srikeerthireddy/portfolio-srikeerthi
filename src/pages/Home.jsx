@@ -1,95 +1,140 @@
-import React, { useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaLaptopCode } from 'react-icons/fa';
-import { HiDownload } from 'react-icons/hi';
-import { BsPersonLinesFill } from 'react-icons/bs';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import profileImg from '../assets/photos/profile2.jpg'
-import resume from '../assets/Resume.pdf'
+import React, { useEffect, useRef } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import profileImg from "../assets/photos/profile2.jpg";
 
+const stats = [
+  { value: "4+", label: "Projects" },
+  { value: "1", label: "Internship" },
+  { value: "6", label: "Certificates" },
+];
 
 const Home = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const iconsRef = useRef(null);
   const btnRef = useRef(null);
+  const statsRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.out" } });
-
-    tl.fromTo(textRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0 })
-      .fromTo(imageRef.current, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1 }, "-=0.4")
-      .fromTo(iconsRef.current, { opacity: 0, y: 10 }, { opacity: 1, y: 0 }, "-=0.2")
-      .fromTo(btnRef.current, { opacity: 0, y: 10 }, { opacity: 1, y: 0 }, "-=0.2");
-
+    const tl = gsap.timeline({ defaults: { duration: 0.7, ease: "power3.out" } });
+    tl.fromTo(textRef.current, { opacity: 0, y: 24 }, { opacity: 1, y: 0 })
+      .fromTo(imageRef.current, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 }, "-=0.4")
+      .fromTo(iconsRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0 }, "-=0.2")
+      .fromTo(btnRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0 }, "-=0.2")
+      .fromTo(statsRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0 }, "-=0.3");
     return () => tl.kill();
   }, []);
 
-  const scrollToContact = () => {
-    const section = document.querySelector('#contact');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-screen  text-white pt-16">
-      <div className="flex flex-wrap-reverse md:flex-nowrap py-10 md:flex-row gap-10 items-center justify-center min-h-screen px-6 md:px-10">
+    <div className="min-h-screen pt-20 pb-16 md:pt-24 md:pb-20">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-12 md:gap-16">
         <motion.div
           ref={textRef}
-          className="md:w-1/2 text-center md:text-left md:pl-30 space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          className="md:max-w-xl space-y-6 text-center md:text-left"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold leading-snug">
-            Hello,<br />
-            This is <span className="text-pink-500">Sri Keerthi</span>,<br />
-            a <span className="text-green-400">Software Developer</span>
+          <p className="section-label mb-3">Full-Stack Engineer</p>
+          <h1 className="section-title text-white mb-4 md:mb-5" style={{ fontSize: 'clamp(2.5rem, 7vw, 4.25rem)' }}>
+            Hi, I'm <span className="text-amber-400">Y.Sri Keerthi</span>
           </h1>
+          <p className="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed">
+            I build reliable, scalable web applications with a focus on backend architecture, APIs, and cloud infrastructure.
+          </p>
 
           <motion.div
             ref={iconsRef}
-            className="flex justify-center md:justify-start gap-6 text-3xl "
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="flex justify-center md:justify-start gap-4"
           >
-            <a href="https://github.com/srikeerthireddy" target="_blank" className='hover:invert'><FaGithub className='size-10' /></a>
-            <a href="https://www.linkedin.com/in/sri-keerthi-y-519b312a3/" target="_blank"  className='hover:text-blue-800'><FaLinkedin className='size-10 ' /></a>
-            <a href="https://leetcode.com/u/srikeerthireddy/" target="_blank" className='hover:text-orange-500'><FaLaptopCode className='size-10'/></a>
+            <a
+              href="https://www.linkedin.com/in/sri-keerthi-y-519b312a3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-white/5 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="w-6 h-6" />
+            </a>
+            <a
+              href="https://github.com/srikeerthireddy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-white/5 transition-colors"
+              aria-label="GitHub"
+            >
+              <FaGithub className="w-6 h-6" />
+            </a>
+            <a
+              href="https://leetcode.com/u/srikeerthireddy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-white/5 transition-colors"
+              aria-label="LeetCode"
+            >
+              <SiLeetcode className="w-6 h-6" />
+            </a>
           </motion.div>
 
           <motion.div
             ref={btnRef}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
           >
             <button
-              className="bg-pink-500 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-pink-600"
-              onClick={scrollToContact}
+              onClick={() => scrollTo("contact")}
+              className="px-6 py-3 rounded-xl bg-amber-500 text-slate-900 font-semibold hover:bg-amber-400 transition-colors"
             >
-              Contact Me
+              Get in Touch
             </button>
-            <a href={resume} download className="bg-green-500 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-green-600 flex items-center gap-2">
-              <HiDownload /> Download Resume
-            </a>
+            <button
+              onClick={() => scrollTo("resume")}
+              className="px-6 py-3 rounded-xl border border-amber-500/50 text-amber-400 font-semibold hover:bg-amber-500/10 transition-colors"
+            >
+              View Resume
+            </button>
           </motion.div>
         </motion.div>
 
         <motion.div
           ref={imageRef}
-          className="w-1/2 text-center flex justify-center items-center md:text-right"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
+          className="flex justify-center md:justify-end shrink-0"
         >
-          <img src={profileImg} alt="Profile" className="md:rounded-full rounded-3xl w-60 h-60 md:h-90 md:w-90 object-cover outline-2 outline-amber-100 hover:shadow-2xl mx-auto md:mx-0" />
-
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-br from-amber-500/30 to-transparent rounded-2xl blur-xl" />
+            <img
+              src={profileImg}
+              alt="Y.Sri Keerthi"
+              className="relative w-56 h-56 md:w-72 md:h-72 rounded-2xl object-cover border border-white/10 shadow-2xl"
+            />
+          </div>
         </motion.div>
       </div>
+
+      <motion.div
+        ref={statsRef}
+        className="max-w-6xl mx-auto px-4 md:px-8 mt-20 md:mt-24 flex flex-wrap items-center justify-center md:justify-start gap-8 md:gap-12"
+      >
+        {stats.map(({ value, label }, i) => (
+          <React.Fragment key={label}>
+            {i > 0 && (
+              <span className="hidden md:inline w-px h-12 bg-white/10 rounded-full" aria-hidden />
+            )}
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-amber-400 tracking-tight">
+                {value}
+              </p>
+              <p className="text-lg md:text-xl text-slate-400 mt-1.5 font-medium">
+                {label}
+              </p>
+            </div>
+          </React.Fragment>
+        ))}
+      </motion.div>
     </div>
   );
 };

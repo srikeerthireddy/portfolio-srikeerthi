@@ -1,95 +1,105 @@
-import React, { useState, useEffect } from 'react';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { motion } from "framer-motion";
 
-const Navbar = () => {
-  const [nav, setNav] = useState(false);
+const navItems = [
+  { name: "Home", id: "home" },
+  { name: "About", id: "about" },
+  { name: "Experience", id: "experience" },
+  { name: "Resume", id: "resume" },
+  { name: "Skills", id: "showcase" },
+  { name: "Projects", id: "projects" },
+  { name: "Contact", id: "contact" },
+];
+
+export default function Navbar() {
+  const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  const handleNav = () => setNav(!nav);
+  const [activeId, setActiveId] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const sections = navItems.map(({ id }) => document.getElementById(id)).filter(Boolean);
+      const scrollY = window.scrollY + 120;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollY) {
+          setActiveId(navItems[i].id);
+          break;
+        }
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    setNav(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id) => {
+    setNavOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
-  const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'showcase', id: 'showcase' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Contact', id: 'contact' }
-  ];
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300 ${scrolled ? 'bg-[#1B2631]  backdrop-blur-sm shadow-lg' : 'bg-[#1B2631]'}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300 ${
+        scrolled ? "bg-[#0a0f1a]/95 backdrop-blur-xl border-b border-white/5 shadow-lg" : "bg-transparent"
+      }`}
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-4xl font-bold text-white">Sri<span className="text-pink-500">Keerthi</span></a>
+      <div className="max-w-6xl mx-auto flex justify-between items-center relative z-50">
+        <button
+          onClick={() => scrollTo("home")}
+          className="text-xl md:text-2xl font-bold text-white tracking-tight"
+        >
+          Y.Sri<span className="text-amber-400">Keerthi</span>
+        </button>
 
-        <ul className="hidden md:flex text-2xl space-x-10">
-          {navItems.map((item) => (
-            <li key={item.id}>
+        <ul className="hidden md:flex items-center gap-1">
+          {navItems.map(({ name, id }) => (
+            <li key={id}>
               <button
-                onClick={() => scrollToSection(item.id)}
-                className="transition-all duration-300 text-white cursor-pointer hover:text-pink-500 md:font-semibold"
+                onClick={() => scrollTo(id)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  activeId === id
+                    ? "text-amber-400 bg-amber-500/10"
+                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                }`}
               >
-                {item.name}
+                {name}
               </button>
             </li>
           ))}
         </ul>
 
-
-        <div onClick={handleNav} className="md:hidden cursor-pointer z-20">
-          {nav ? <HiX size={30} className="text-white" /> : <HiMenuAlt3 size={30} className="text-white" />}
-        </div>
-
-        <motion.div
-          className={`fixed top-0 left-0 w-full h-screen bg-black/90 flex flex-col justify-center items-center z-10 transition-all duration-500 ${nav ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: nav ? 1 : 0 }}
-          transition={{ duration: 0.5 }}
+        <button
+          onClick={() => setNavOpen(!navOpen)}
+          className="md:hidden p-2 text-white rounded-lg hover:bg-white/10"
+          aria-label="Toggle menu"
         >
-          <ul className="text-center space-y-8">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-2xl transition duration-300 ${activeSection === item.id ? 'text-pink-500 font-semibold' : 'text-white hover:text-pink-500'}`}
-                >
-                  {item.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+          {navOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+        </button>
       </div>
+
+      <motion.div
+        initial={false}
+        animate={{ opacity: navOpen ? 1 : 0, pointerEvents: navOpen ? "auto" : "none" }}
+        className="fixed inset-0 top-0 bg-[#0a0f1a]/98 backdrop-blur-xl md:hidden flex flex-col justify-center items-center gap-6 z-[45]"
+      >
+        {navItems.map(({ name, id }) => (
+          <button
+            key={id}
+            onClick={() => scrollTo(id)}
+            className={`text-xl font-medium transition-colors ${
+              activeId === id ? "text-amber-400" : "text-slate-300 hover:text-white"
+            }`}
+          >
+            {name}
+          </button>
+        ))}
+      </motion.div>
     </motion.nav>
   );
-};
-
-export default Navbar;
+}

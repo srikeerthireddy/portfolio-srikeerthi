@@ -4,36 +4,31 @@ import { X, Maximize2 } from "lucide-react";
 const Certificate = ({ img, name }) => {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => setOpen(true);
   const handleClose = (e) => {
-    e.stopPropagation();
+    e?.stopPropagation?.();
     setOpen(false);
   };
 
   return (
-    <div className="w-full">
-      {/* Thumbnail */}
-      <div
-        className="relative rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-pointer group"
-        onClick={handleOpen}
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="relative w-full rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:ring-offset-2 focus:ring-offset-[#0a0f1a] group"
       >
         <img
           src={img}
           alt={name}
-          className="w-full h-auto object-cover transition duration-300 filter group-hover:brightness-100 group-hover:contrast-105 group-hover:saturate-110"
+          className="w-full h-auto object-cover transition duration-300 group-hover:scale-[1.02]"
         />
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-          <div className="text-white text-center space-y-2 transform group-hover:-translate-y-1 transition">
-            <Maximize2 className="mx-auto w-8 h-8 drop-shadow" />
-            <p className="text-lg font-semibold drop-shadow">View Certificate</p>
-          </div>
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <Maximize2 className="w-8 h-8 text-amber-400" />
         </div>
-      </div>
+      </button>
 
-      {/* Modal */}
       {open && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
           onClick={handleClose}
         >
           <div
@@ -41,20 +36,21 @@ const Certificate = ({ img, name }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-transform hover:scale-110"
+              type="button"
               onClick={handleClose}
+              className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
             >
               <X size={20} />
             </button>
             <img
               src={img}
               alt={name}
-              className="max-w-full max-h-[90vh] object-contain mx-auto"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
             />
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
