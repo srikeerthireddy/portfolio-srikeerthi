@@ -1,0 +1,11 @@
+/* Global dark background to prevent white at bottom */
+body {
+	background: #0a0f1a !important;
+	color: #f5f6fa;
+	min-height: 100vh;
+}
+
+/* Section background for main content */
+.section-dark {
+	background: #0a0f1a;
+}

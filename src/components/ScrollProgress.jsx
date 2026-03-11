@@ -14,7 +14,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-white/5">
+    <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-black/5">
       <motion.div
         className="h-full bg-amber-400"
         style={{ width: `${scrollY}%` }}

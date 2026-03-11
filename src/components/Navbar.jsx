@@ -45,26 +45,29 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300 ${
-        scrolled ? "bg-[#0a0f1a]/95 backdrop-blur-xl border-b border-white/5 shadow-lg" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0a0f1a]/95 backdrop-blur-xl border-b border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.05)]"
+          : "bg-[#0a0f1a]/40 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-6xl mx-auto flex justify-between items-center relative z-50">
+      <div className="max-w-6xl mx-auto flex justify-between items-center relative z-50 px-4 md:px-8 py-4">
         <button
           onClick={() => scrollTo("home")}
-          className="text-xl md:text-2xl font-bold text-white tracking-tight"
+          className="group flex items-baseline gap-0.5 text-lg md:text-xl font-bold tracking-tight text-white"
         >
-          Y.Sri<span className="text-amber-400">Keerthi</span>
+          <span className="group-hover:text-amber-400/90 transition-colors">Y.Sri</span>
+          <span className="text-amber-400 group-hover:text-amber-300 transition-colors">Keerthi</span>
         </button>
 
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-0.5">
           {navItems.map(({ name, id }) => (
             <li key={id}>
               <button
                 onClick={() => scrollTo(id)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-[0.8125rem] font-medium tracking-wide transition-all duration-200 ${
                   activeId === id
-                    ? "text-amber-400 bg-amber-500/10"
+                    ? "text-amber-400 bg-amber-500/15"
                     : "text-slate-400 hover:text-white hover:bg-white/5"
                 }`}
               >
@@ -76,7 +79,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setNavOpen(!navOpen)}
-          className="md:hidden p-2 text-white rounded-lg hover:bg-white/10"
+          className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
           aria-label="Toggle menu"
         >
           {navOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}

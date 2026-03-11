@@ -35,16 +35,16 @@ const Home = () => {
 
   return (
     <div className="min-h-screen pt-20 pb-16 md:pt-24 md:pb-20">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-12 md:gap-16">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 md:gap-14">
         <motion.div
           ref={textRef}
-          className="md:max-w-xl space-y-6 text-center md:text-left"
+          className="md:max-w-xl space-y-5 text-center md:text-left"
         >
-          <p className="section-label mb-3">Full-Stack Engineer</p>
-          <h1 className="section-title text-white mb-4 md:mb-5" style={{ fontSize: 'clamp(2.5rem, 7vw, 4.25rem)' }}>
+          <p className="section-label mb-2 text-xs md:text-sm">Full-Stack Engineer</p>
+          <h1 className="section-title text-white mb-3 md:mb-4" style={{ fontSize: 'clamp(2.5rem, 7vw, 4.25rem)' }}>
             Hi, I'm <span className="text-amber-400">Y.Sri Keerthi</span>
           </h1>
-          <p className="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed">
+          <p className="text-slate-400 text-sm md:text-base max-w-lg leading-relaxed">
             I build reliable, scalable web applications with a focus on backend architecture, APIs, and cloud infrastructure.
           </p>
 
@@ -87,13 +87,13 @@ const Home = () => {
           >
             <button
               onClick={() => scrollTo("contact")}
-              className="px-6 py-3 rounded-xl bg-amber-500 text-slate-900 font-semibold hover:bg-amber-400 transition-colors"
+              className="px-6 py-3 rounded-xl bg-amber-500 text-slate-900 font-semibold text-base hover:bg-amber-400 transition-colors"
             >
               Get in Touch
             </button>
             <button
               onClick={() => scrollTo("resume")}
-              className="px-6 py-3 rounded-xl border border-amber-500/50 text-amber-400 font-semibold hover:bg-amber-500/10 transition-colors"
+              className="px-6 py-3 rounded-xl border border-amber-500/50 text-amber-400 font-semibold text-base hover:bg-amber-500/10 transition-colors"
             >
               View Resume
             </button>
@@ -105,11 +105,11 @@ const Home = () => {
           className="flex justify-center md:justify-end shrink-0"
         >
           <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-br from-amber-500/30 to-transparent rounded-2xl blur-xl" />
+            <div className="absolute -inset-1 bg-gradient-to-br from-amber-500/30 to-transparent rounded-full blur-xl" />
             <img
               src={profileImg}
               alt="Y.Sri Keerthi"
-              className="relative w-56 h-56 md:w-72 md:h-72 rounded-2xl object-cover border border-white/10 shadow-2xl"
+              className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border border-white/10 shadow-2xl"
             />
           </div>
         </motion.div>
@@ -117,18 +117,18 @@ const Home = () => {
 
       <motion.div
         ref={statsRef}
-        className="max-w-6xl mx-auto px-4 md:px-8 mt-20 md:mt-24 flex flex-wrap items-center justify-center md:justify-start gap-8 md:gap-12"
+        className="max-w-6xl mx-auto px-4 md:px-8 mt-10 md:mt-14 flex flex-wrap items-center justify-center md:justify-start gap-6 md:gap-10"
       >
         {stats.map(({ value, label }, i) => (
           <React.Fragment key={label}>
             {i > 0 && (
-              <span className="hidden md:inline w-px h-12 bg-white/10 rounded-full" aria-hidden />
+              <span className="hidden md:inline w-px h-10 bg-white/10 rounded-full flex-shrink-0" aria-hidden />
             )}
-            <div className="flex flex-col items-center md:items-start">
-              <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-amber-400 tracking-tight">
+            <div className="flex flex-col items-center md:items-start min-w-[4rem]">
+              <p className="text-4xl md:text-5xl font-bold text-amber-400 tracking-tight leading-none">
                 {value}
               </p>
-              <p className="text-lg md:text-xl text-slate-400 mt-1.5 font-medium">
+              <p className="text-base md:text-lg text-slate-400 mt-1.5 font-medium uppercase tracking-wider">
                 {label}
               </p>
             </div>

@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div
       id="main"
-      className="scroll-smooth text-[var(--text-primary)] min-h-screen"
+      className="scroll-smooth text-[var(--text-primary)] min-h-screen bg-[#0a0f1a]"
     >
       <ScrollProgress />
       <Navbar />
