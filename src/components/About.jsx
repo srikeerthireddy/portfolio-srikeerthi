@@ -1,24 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Server, Code2, Cloud, Shield, Zap, Layers } from "lucide-react";
+import { Server, Gauge, Sparkles, ShieldCheck, Cpu, Layers } from "lucide-react";
 
 const personalStatement =
-  "Detail-oriented full-stack engineer focused on developing reliable, scalable, and secure web applications. Strong interest in backend architecture, API development, and cloud infrastructure, with a commitment to continuous learning and delivering meaningful real-world solutions.";
+  "Full-Stack & Backend Engineer with hands-on production experience across two engineering internships (Wozku Solutions & ShotGun Fantasy). Proven track record in solving complex architectural and performance challenges: slashed database query latency by 98% (38s to 0.62s), refactored monolithic systems into clean domain services, engineered multi-tenant RBAC with token isolation, and developed AI-driven NL-to-SQL reporting pipelines and microservices. Dedicated to writing clean, maintainable, production-ready code that drives real business impact.";
 
 const education = {
   program: "Kalvium's UG program in CS (Software Product Engineering)",
   years: "2023–2027",
-  campus: "Apollo University, Chittoor",
+  campus: "Apollo University, Chittoor, Andhra Pradesh",
   degree: "B.Tech in Software Engineering",
 };
 
 const focusAreas = [
-  { icon: Server, label: "Backend Architecture", color: "text-amber-400" },
-  { icon: Code2, label: "API Development", color: "text-cyan-400" },
-  { icon: Cloud, label: "Cloud & DevOps", color: "text-amber-300" },
-  { icon: Shield, label: "Secure Systems", color: "text-violet-400" },
-  { icon: Zap, label: "Scalable Solutions", color: "text-rose-400" },
-  { icon: Layers, label: "Full-Stack Apps", color: "text-sky-400" },
+  { icon: Server, label: "Clean Backend Architecture", color: "text-amber-400" },
+  { icon: Gauge, label: "DB & Performance Optimization", color: "text-emerald-400" },
+  { icon: Sparkles, label: "AI & RAG / NL-to-SQL", color: "text-purple-400" },
+  { icon: ShieldCheck, label: "Multi-Tenant RBAC & Security", color: "text-violet-400" },
+  { icon: Cpu, label: "Microservices & Docker/K8s", color: "text-cyan-400" },
+  { icon: Layers, label: "Full-Stack SaaS Systems", color: "text-sky-400" },
 ];
 
 export default function About() {
@@ -61,7 +61,7 @@ export default function About() {
             ))}
           </div>
           <p className="text-slate-500 section-body italic">
-            "Building reliable, scalable, and secure web applications with a focus on backend and APIs."
+            "Engineering high-throughput backend architectures, database latency reduction, enterprise SaaS workflows, and intelligent AI pipelines."
           </p>
         </motion.div>
 

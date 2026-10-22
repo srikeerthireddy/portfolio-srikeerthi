@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { FileText, ExternalLink, Download } from "lucide-react";
 
 const RESUME_LINK =
-  "https://docs.google.com/document/d/1ecD2OV-bwnO1gkEA18e-CCdadk6dZqYz/view?usp=sharing";
+  "https://drive.google.com/file/d/1BYTNSFpRWNNfcR2pb_51HWuI58JrUaA4/view?usp=sharing";
 const RESUME_PDF_LINK =
-  "https://docs.google.com/document/d/1ecD2OV-bwnO1gkEA18e-CCdadk6dZqYz/export?format=pdf";
+  "https://drive.google.com/uc?export=download&id=1BYTNSFpRWNNfcR2pb_51HWuI58JrUaA4";
 
 export default function ResumeSection() {
   return (

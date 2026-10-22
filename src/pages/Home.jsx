@@ -7,7 +7,7 @@ import profileImg from "../assets/photos/profile2.jpg";
 
 const stats = [
   { value: "4+", label: "Projects" },
-  { value: "1", label: "Internship" },
+  { value: "2", label: "Internships" },
   { value: "6", label: "Certificates" },
 ];
 
@@ -40,12 +40,12 @@ const Home = () => {
           ref={textRef}
           className="md:max-w-xl space-y-5 text-center md:text-left"
         >
-          <p className="section-label mb-2 text-xs md:text-sm">Full-Stack Engineer</p>
+          <p className="section-label mb-2 text-xs md:text-sm">Full-Stack & Backend Engineer</p>
           <h1 className="section-title text-white mb-3 md:mb-4" style={{ fontSize: 'clamp(2.5rem, 7vw, 4.25rem)' }}>
             Hi, I'm <span className="text-amber-400">Y.Sri Keerthi</span>
           </h1>
           <p className="text-slate-400 text-sm md:text-base max-w-lg leading-relaxed">
-            I build reliable, scalable web applications with a focus on backend architecture, APIs, and cloud infrastructure.
+            Building high-performance, scalable SaaS platforms and AI-driven backend systems with expertise in Laravel, Go, Node.js, database query optimization, and cloud architecture.
           </p>
 
           <motion.div
