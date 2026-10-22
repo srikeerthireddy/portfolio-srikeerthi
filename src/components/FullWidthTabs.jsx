@@ -7,10 +7,11 @@ import data from "../data/data";
 
 const achievements = [
   "Technology Intern at Wozku Solutions — Architected clean Laravel/PHP services, cut database query latency by 98% (38s → 0.62s), engineered AI/NL-to-SQL reporting & sub-account RBAC.",
+  "AI Research Assistant Studio — Built a production-grade multi-agent RAG platform (FastAPI, Python, Streamlit, vector embeddings) for automated research paper synthesis.",
   "Backend Developer Intern at ShotGun Fantasy — Scaled high-throughput NFL Fantasy Draft Room APIs using Node.js, Golang, PostgreSQL, and Redis.",
   "AI & Sarcasm Classification Microservices — Fine-tuned T5 models using PyTorch, Hugging Face Transformers, and Dockerized FastAPI endpoints.",
   "Enterprise Architecture & Security — Engineered double-entry immutable credit ledgers, maker-checker approval workflows, and multi-tenant workspace isolation.",
-  "Cloud & CI/CD Deployment — Deployed 4+ production full-stack applications with GitHub Actions, Docker, Kubernetes worker scaling, and automated testing.",
+  "Cloud & CI/CD Deployment — Deployed 5+ production full-stack applications with GitHub Actions, Docker, Kubernetes worker scaling, and automated testing.",
 ];
 
 const tabs = [

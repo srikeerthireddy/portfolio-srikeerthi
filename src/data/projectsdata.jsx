@@ -1,9 +1,31 @@
+import aiAssistant from "../assets/projects/ai-assistant.png";
 import capstone from "../assets/projects/capstone.jpeg";
 import dish from "../assets/projects/dish.jpg";
 import brick from "../assets/projects/brick.jpeg";
 import infra from "../assets/projects/infra.png";
 
 const projects = [
+  {
+    title: "AI Research Assistant Studio",
+    description:
+      "Production-grade multi-agent RAG system inspired by ChatPDF, Perplexity, and NotebookLM. Features automated document ingestion, chunking, semantic analysis, and vector embeddings.",
+    tech: [
+      "FastAPI",
+      "Python",
+      "Multi-Agent RAG",
+      "Vector Embeddings",
+      "Streamlit",
+      "Docker",
+    ],
+    image: aiAssistant,
+    link: "https://ai-research-assistant-z8ymow2bqozjrlugrun2an.streamlit.app/",
+    github: "https://github.com/srikeerthireddy/AI-Research-Assistant.git",
+    period: "October 2026 - Ongoing",
+    impact:
+      "Delivers sub-second semantic retrieval across diverse research papers and documents with intelligent context synthesis.",
+    learning:
+      "Engineered multi-agent RAG orchestration, document chunking pipelines, embedding search, and decoupled FastAPI microservices with Streamlit frontend.",
+  },
   {
     title: "Smart-Public-Infrastructure-Monitoring-System",
     description:

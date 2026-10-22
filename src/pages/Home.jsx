@@ -6,7 +6,7 @@ import gsap from "gsap";
 import profileImg from "../assets/photos/profile2.jpg";
 
 const stats = [
-  { value: "4+", label: "Projects" },
+  { value: "5+", label: "Projects" },
   { value: "2", label: "Internships" },
   { value: "6", label: "Certificates" },
 ];
